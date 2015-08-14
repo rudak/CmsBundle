@@ -2,7 +2,10 @@
   "name": "rudak/cms-bundle",
   "type": "symfony-bundle",
   "description": "Symfony ultra simple cms bundle",
-  "keywords": ["cms","blog"],
+  "keywords": [
+    "cms",
+    "blog"
+  ],
   "license": "GPL-3.0+",
   "authors": [
     {
