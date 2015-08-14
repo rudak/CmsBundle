@@ -1,0 +1,24 @@
+{% extends main_layout %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Administration CMS</h1>
+            <hr>
+            <p>
+                <a href="{{ path('admin_cms_category') }}">
+                    Administration catégories
+                </a>
+            </p>
+
+            <p>
+                <a href="{{ path('admin_cms_page') }}">
+                    Administration pages
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-4">
+            {% render(controller('RudakUserBundle:Include:userArea')) %}
+        </div>
+    </div>
+{% endblock %}

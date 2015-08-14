@@ -1,0 +1,77 @@
+<?php
+
+namespace Rudak\CmsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Page
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Rudak\CmsBundle\Entity\PageRepository")
+ */
+class Page
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=150)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=170)
+     */
+    private $url;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Rudak\UserBundle\Entity\User")
+     */
+    private $author;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     */
+    private $content;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lastModifiedAt", type="datetime")
+     */
+    private $lastModifiedAt;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="public", type="boolean")
+     */
+    private $public;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Rudak\CmsBundle\Entity\Category",
+     * inversedBy="pages"
+     * )
+     */
+    private $Category;
+}
