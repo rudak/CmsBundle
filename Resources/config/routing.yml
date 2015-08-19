@@ -5,8 +5,3 @@ rudak_cms_admin:
 rudak_cms_admin_cms_page:
     resource: "@RudakCmsBundle/Resources/config/routing/page.yml"
     prefix:   /admin/cms/page
-
-rudak_cms_admin_cms_category:
-    resource: "@RudakCmsBundle/Resources/config/routing/category.yml"
-    prefix:   /admin/cms/category
-

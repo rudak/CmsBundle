@@ -19,6 +19,7 @@ class PageType extends AbstractType
             ->add('url')
             ->add('content')
             ->add('public')
+            ->add('author')
         ;
     }
     
