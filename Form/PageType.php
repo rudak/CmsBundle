@@ -18,11 +18,7 @@ class PageType extends AbstractType
             ->add('name')
             ->add('url')
             ->add('content')
-            ->add('createdAt')
-            ->add('lastModifiedAt')
             ->add('public')
-            ->add('author')
-            ->add('Category')
         ;
     }
     

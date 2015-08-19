@@ -57,23 +57,16 @@ class Page
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="lastModifiedAt", type="datetime")
+     * @ORM\Column(name="lastModifiedAt", type="datetime",nullable=true)
      */
     private $lastModifiedAt;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="public", type="boolean")
+     * @ORM\Column(name="public", type="boolean",nullable=true)
      */
     private $public;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Rudak\CmsBundle\Entity\Category",
-     * inversedBy="pages"
-     * )
-     */
-    private $Category;
 
     /**
      * Get id
@@ -244,28 +237,5 @@ class Page
     public function getAuthor()
     {
         return $this->author;
-    }
-
-    /**
-     * Set Category
-     *
-     * @param \Rudak\CmsBundle\Entity\Category $category
-     * @return Page
-     */
-    public function setCategory(\Rudak\CmsBundle\Entity\Category $category = null)
-    {
-        $this->Category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get Category
-     *
-     * @return \Rudak\CmsBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->Category;
     }
 }
