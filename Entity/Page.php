@@ -12,230 +12,237 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Page
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=150)
-     */
-    private $name;
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url", type="string", length=170)
-     */
-    private $url;
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="name", type="string", length=150)
+	 */
+	private $name;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Rudak\UserBundle\Entity\User")
-     */
-    private $author;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text")
-     */
-    private $content;
+	/**
+	 * @ORM\ManyToOne(targetEntity="Rudak\UserBundle\Entity\User")
+	 */
+	private $author;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdAt", type="datetime")
-     */
-    private $createdAt;
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="content", type="text")
+	 */
+	private $content;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="lastModifiedAt", type="datetime",nullable=true)
-     */
-    private $lastModifiedAt;
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="createdAt", type="datetime")
+	 */
+	private $createdAt;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="public", type="boolean",nullable=true)
-     */
-    private $public;
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="lastModifiedAt", type="datetime",nullable=true)
+	 */
+	private $lastModifiedAt;
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+	/**
+	 * @var boolean
+	 *
+	 * @ORM\Column(name="public", type="boolean",nullable=true)
+	 */
+	private $public;
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Page
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="hit", type="integer")
+	 */
+	private $hit;
 
-        return $this;
-    }
+	public function __construct()
+	{
+		$this->hit = 0;
+	}
 
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+	public function __toString()
+	{
+		return $this->name;
+	}
 
-    /**
-     * Set url
-     *
-     * @param string $url
-     * @return Page
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
+	/**
+	 * Get id
+	 *
+	 * @return integer
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
 
-        return $this;
-    }
+	/**
+	 * Set name
+	 *
+	 * @param string $name
+	 * @return Page
+	 */
+	public function setName($name)
+	{
+		$this->name = $name;
 
-    /**
-     * Get url
-     *
-     * @return string 
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
+		return $this;
+	}
 
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return Page
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
+	/**
+	 * Get name
+	 *
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
 
-        return $this;
-    }
+	/**
+	 * Set content
+	 *
+	 * @param string $content
+	 * @return Page
+	 */
+	public function setContent($content)
+	{
+		$this->content = $content;
 
-    /**
-     * Get content
-     *
-     * @return string 
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
+		return $this;
+	}
 
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Page
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
+	/**
+	 * Get content
+	 *
+	 * @return string
+	 */
+	public function getContent()
+	{
+		return $this->content;
+	}
 
-        return $this;
-    }
+	/**
+	 * Set createdAt
+	 *
+	 * @param \DateTime $createdAt
+	 * @return Page
+	 */
+	public function setCreatedAt($createdAt)
+	{
+		$this->createdAt = $createdAt;
 
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+		return $this;
+	}
 
-    /**
-     * Set lastModifiedAt
-     *
-     * @param \DateTime $lastModifiedAt
-     * @return Page
-     */
-    public function setLastModifiedAt($lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+	/**
+	 * Get createdAt
+	 *
+	 * @return \DateTime
+	 */
+	public function getCreatedAt()
+	{
+		return $this->createdAt;
+	}
 
-        return $this;
-    }
+	/**
+	 * Set lastModifiedAt
+	 *
+	 * @param \DateTime $lastModifiedAt
+	 * @return Page
+	 */
+	public function setLastModifiedAt($lastModifiedAt)
+	{
+		$this->lastModifiedAt = $lastModifiedAt;
 
-    /**
-     * Get lastModifiedAt
-     *
-     * @return \DateTime 
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+		return $this;
+	}
 
-    /**
-     * Set public
-     *
-     * @param boolean $public
-     * @return Page
-     */
-    public function setPublic($public)
-    {
-        $this->public = $public;
+	/**
+	 * Get lastModifiedAt
+	 *
+	 * @return \DateTime
+	 */
+	public function getLastModifiedAt()
+	{
+		return $this->lastModifiedAt;
+	}
 
-        return $this;
-    }
+	/**
+	 * Set public
+	 *
+	 * @param boolean $public
+	 * @return Page
+	 */
+	public function setPublic($public)
+	{
+		$this->public = $public;
 
-    /**
-     * Get public
-     *
-     * @return boolean 
-     */
-    public function getPublic()
-    {
-        return $this->public;
-    }
+		return $this;
+	}
 
-    /**
-     * Set author
-     *
-     * @param \Rudak\UserBundle\Entity\User $author
-     * @return Page
-     */
-    public function setAuthor(\Rudak\UserBundle\Entity\User $author = null)
-    {
-        $this->author = $author;
+	/**
+	 * Get public
+	 *
+	 * @return boolean
+	 */
+	public function getPublic()
+	{
+		return $this->public;
+	}
 
-        return $this;
-    }
+	/**
+	 * Set author
+	 *
+	 * @param \Rudak\UserBundle\Entity\User $author
+	 * @return Page
+	 */
+	public function setAuthor(\Rudak\UserBundle\Entity\User $author = null)
+	{
+		$this->author = $author;
 
-    /**
-     * Get author
-     *
-     * @return \Rudak\UserBundle\Entity\User 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
+		return $this;
+	}
+
+	/**
+	 * Get author
+	 *
+	 * @return \Rudak\UserBundle\Entity\User
+	 */
+	public function getAuthor()
+	{
+		return $this->author;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getHit()
+	{
+		return $this->hit;
+	}
+
+	/**
+	 * @param int $hit
+	 */
+	public function setHit($hit)
+	{
+		$this->hit = $hit;
+	}
+
+
 }

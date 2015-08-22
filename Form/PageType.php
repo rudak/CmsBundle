@@ -16,8 +16,8 @@ class PageType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('url')
             ->add('content')
+            ->add('hit')
             ->add('public')
             ->add('author')
         ;

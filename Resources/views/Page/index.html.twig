@@ -3,49 +3,47 @@
 {% block body -%}
     <h1>Page list</h1>
 
-    <table class="records_list">
+    <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Url</th>
-                <th>Content</th>
-                <th>Createdat</th>
-                <th>Lastmodifiedat</th>
-                <th>Public</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Createdat</th>
+            <th>Lastmodifiedat</th>
+            <th>Public</th>
+            <th>Hit</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_cms_page_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
-                <td>{{ entity.url }}</td>
-                <td>{{ entity.content }}</td>
                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.lastModifiedAt %}{{ entity.lastModifiedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.public }}</td>
+                <td>{{ entity.hit }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_cms_page_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_cms_page_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_cms_page_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_cms_page_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
+    <ul>
         <li>
             <a href="{{ path('admin_cms_page_new') }}">
                 Create a new entry
             </a>
         </li>
     </ul>
-    {% endblock %}
+{% endblock %}

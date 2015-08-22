@@ -1,7 +1,11 @@
-rudak_cms_admin:
-    path:     /admin/cms
-    defaults: { _controller: "RudakCmsBundle:Admin:index" }
-
 rudak_cms_admin_cms_page:
     resource: "@RudakCmsBundle/Resources/config/routing/page.yml"
     prefix:   /admin/cms/page
+
+rudak_cms_page_read:
+    path: /page/{id}/{name}
+    defaults: { _controller : "RudakCmsBundle:Default:Page" }
+    methods: [GET]
+    requirements:
+        id: \d+
+        name: "[a-zA-Z-\d]+"

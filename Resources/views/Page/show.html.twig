@@ -3,7 +3,7 @@
 {% block body -%}
     <h1>Page</h1>
 
-    <table class="record_properties">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -12,10 +12,6 @@
             <tr>
                 <th>Name</th>
                 <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ entity.url }}</td>
             </tr>
             <tr>
                 <th>Content</th>
@@ -28,6 +24,10 @@
             <tr>
                 <th>Lastmodifiedat</th>
                 <td>{{ entity.lastModifiedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Hit</th>
+                <td>{{ entity.hit }}</td>
             </tr>
             <tr>
                 <th>Public</th>
