@@ -1,18 +1,21 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Page list</h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('rudak_main_admin') }}">Administration</a></li>
+        <li class="active">Liste des pages</li>
+    </ol>
 
     <table class="table">
         <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Createdat</th>
-            <th>Lastmodifiedat</th>
+            <th>Nom</th>
+            <th>Création</th>
+            <th>Derniere modification</th>
             <th>Public</th>
             <th>Hit</th>
-            <th>Actions</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -22,28 +25,25 @@
                 <td>{{ entity.name }}</td>
                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.lastModifiedAt %}{{ entity.lastModifiedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.public }}</td>
+                <td>{% if entity.public %}Oui{% else %}Non{% endif %}</td>
                 <td>{{ entity.hit }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_cms_page_show', { 'id': entity.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_cms_page_edit', { 'id': entity.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('admin_cms_page_show', { 'id': entity.id }) }}" class="btn btn-xs btn-default">
+                        Voir
+                    </a>
+
+                    <a href="{{ path('admin_cms_page_edit', { 'id': entity.id }) }}" class="btn btn-xs btn-default">
+                        Modifier
+                    </a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_cms_page_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    <p>
+        <a href="{{ path('admin_cms_page_new') }}" class="btn btn-primary">
+            Créer une page
+        </a>
+    </p>
 {% endblock %}

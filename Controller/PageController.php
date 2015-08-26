@@ -69,7 +69,12 @@ class PageController extends Controller
 			'method' => 'POST',
 		));
 
-		$form->add('submit', 'submit', array('label' => 'Create'));
+		$form->add('submit', 'submit', array(
+			'label' => 'Créer une page',
+			'attr'  => array(
+				'class' => 'btn btn-primary'
+			)
+		));
 
 		return $form;
 	}
@@ -149,7 +154,12 @@ class PageController extends Controller
 			'method' => 'PUT',
 		));
 
-		$form->add('submit', 'submit', array('label' => 'Update'));
+		$form->add('submit', 'submit', array(
+			'label' => 'Modifier',
+			'attr'  => array(
+				'class' => 'btn btn-warning'
+			)
+		));
 
 		return $form;
 	}
@@ -222,7 +232,12 @@ class PageController extends Controller
 		return $this->createFormBuilder()
 					->setAction($this->generateUrl('admin_cms_page_delete', array('id' => $id)))
 					->setMethod('DELETE')
-					->add('submit', 'submit', array('label' => 'Delete'))
+					->add('submit', 'submit', array(
+						'label' => 'Supprimer',
+						'attr'  => array(
+							'class' => 'btn btn-danger'
+						)
+					))
 					->getForm();
 	}
 }

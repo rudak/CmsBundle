@@ -1,16 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Page edit</h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('rudak_main_admin') }}">Administration</a></li>
+        <li><a href="{{ path('admin_cms_page') }}">Liste des pages</a></li>
+        <li class="active">Modifier une page</li>
+    </ol>
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_cms_page') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
 {% endblock %}
